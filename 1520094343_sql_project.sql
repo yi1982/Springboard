@@ -81,7 +81,7 @@ the member name. */
 
 SELECT DISTINCT CONCAT(m.surname, ',', m.firstname) as member_name, 
        f.name as facility_name
-from Bookings b
+FROM Bookings b
 INNER JOIN Facilities f
         on f.facid = b.facid AND f.name LIKE 'Tennis Court%'
 JOIN Members m
@@ -133,7 +133,7 @@ FROM
            CONCAT(surname, ',', firstname) as member_name
     FROM Members) m
     ON b.memid = m.memid
-Having cost > 30
+HAVING cost > 30
 ORDER BY cost DESC
 
 
