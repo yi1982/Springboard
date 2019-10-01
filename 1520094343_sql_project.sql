@@ -79,24 +79,14 @@ Include in your output the name of the court, and the name of the member
 formatted as a single column. Ensure no duplicate data, and order by
 the member name. */
 
-SELECT DISTINCT m.member_name, f.facid_name
-  FROM 
-(SELECT memid,
-        CONCAT(surname, ',', firstname) as member_name
-    FROM Members
- WHERE surname != 'GUEST') m
-  LEFT JOIN 
-  (SELECT facid,
-                  memid
-      FROM Bookings) b
-    ON m.memid = b.memid
-   LEFT JOIN 
-  (SELECT facid,
-                  name as facid_name
-    FROM Facilities) f
-    ON b.facid = f.facid
-WHERE f.facid_name LIKE 'Tennis%'
-ORDER BY m.member_name
+SELECT DISTINCT CONCAT(m.surname, ',', m.firstname) as member_name, 
+       f.name as facility_name
+from Bookings b
+INNER JOIN Facilities f
+        on f.facid = b.facid AND f.name LIKE 'Tennis Court%'
+JOIN Members m
+        on m.memid = b.memid AND m.firstname != 'GUEST'
+ORDER BY member_name
 
 /* Q8: How can you produce a list of bookings on the day of 2012-09-14 which
 will cost the member (or guest) more than $30? Remember that guests have
