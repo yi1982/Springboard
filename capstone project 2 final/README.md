@@ -12,7 +12,7 @@ Notebooks:
 
 EDA   https://github.com/yi1982/Springboard/blob/master/capstone%20project%202%20final/code/EDA.ipynb
 
-Data selection and feature engineering
+Data selection and feature engineering   https://github.com/yi1982/Springboard/blob/master/capstone%20project%202%20final/code/Data_Selection_and_Feature_Engineering.ipynb
 
 Random forest   https://github.com/yi1982/Springboard/blob/master/capstone%20project%202%20final/code/Random%20Forest.ipynb
 
